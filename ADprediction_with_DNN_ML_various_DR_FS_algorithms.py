@@ -4596,7 +4596,7 @@ def main():
     if not os.path.exists(dirPath_table3_deg_dmg): os.mkdir(dirPath_table3_deg_dmg)
 
 
-
+    """
     ## comment for replaced DEG
     # comparison test
     num_of_dim_gxpr = 3
@@ -4628,7 +4628,7 @@ def main():
     XY_dr_gxpr_meth_pca = buildIntegratedDataset_DNN(XY_dr_gxpr_pca, XY_dr_meth_pca, "balanced")
     doMachineLearning(XY_dr_gxpr_meth_pca, dirPath_table3_pca + "/[ge_me_pca] ML_result.txt", "Only ML",
                       dirPath_table3_pca + "/[ge_me_pca]")
-
+    """
 
 
     ##############################################################################
@@ -4666,28 +4666,6 @@ def main():
     ##############################################################################
 
 
-
-    """
-    XY_dr_gxpr_ml = buildIntegratedDataset_notinteg(XY_dr_gxpr, "balanced")
-    #doMachineLearning_single(XY_dr_gxpr_ml, "./single/[deg_its] ML_result_all.txt", "Only ML", "./single/gxpr_deg_its")
-    doMachineLearning_single_nb(XY_dr_gxpr_ml, "./single/[deg_its] ML_result_all.txt", "Only ML", "./single/gxpr_deg_its")
-    XY_dr_meth_ml = buildIntegratedDataset_notinteg(XY_dr_meth, "balanced")
-    #doMachineLearning_single(XY_dr_meth_ml, "./single/[dmg_its] ML_result_all.txt", "Only ML", "./single/meth_dmp_its")
-    doMachineLearning_single_nb(XY_dr_meth_ml, "./single/[dmg_its] ML_result_all.txt", "Only ML", "./single/meth_dmp_its")
-    """
-
-    """
-    # T-SNE : working good 
-    num_of_dim_gxpr = 3
-    num_of_dim_meth = 3
-    XY_dr_gxpr = applyDimReduction_TSNE("./allforDNN_ge.txt", num_of_dim_gxpr, "./various_DNN/[integ] tsne_scatter_plot_gxpr")
-    #XY_dr_gxpr_tsne_ml = buildIntegratedDataset_notinteg(XY_dr_gxpr, "balanced")
-    #XY_dr_gxpr_meth = XY_dr_gxpr_tsne_ml
-    XY_dr_meth = applyDimReduction_TSNE("./allforDNN_me.txt", num_of_dim_meth, "./various_DNN/[integ] tsne_scatter_plot_meth")
-    XY_dr_gxpr_meth = buildIntegratedDataset_DNN(XY_dr_gxpr, XY_dr_meth, "balanced")
-
-    doMachineLearning(XY_dr_gxpr_meth, "./ML_result_all_TSNE.txt", "Only ML", "./combine/tsne")
-    """
     """
     # Laplacian : not good / acc is not increased
     num_of_dim_gxpr = 3
@@ -4718,53 +4696,13 @@ def main():
     XY_dr_meth = applyDimReduction_LLE("./allforDNN_me.txt", num_of_dim_meth, "./various_DNN/[integ] llm_scatter_plot_meth")
     XY_dr_gxpr_meth = buildIntegratedDataset_DNN(XY_dr_gxpr, XY_dr_meth, "balanced")
     """
-    """
-    # PCA
-    num_of_dim_gxpr = 3
-    num_of_dim_meth = 3
-    XY_dr_gxpr = applyDimReduction_PCA("./allforDNN_ge.txt", num_of_dim_gxpr, "./various_DNN/[integ] PCA_scatter_plot_gxpr")
-    XY_dr_meth = applyDimReduction_PCA("./allforDNN_me.txt", num_of_dim_meth, "./various_DNN/[integ] PCA_scatter_plot_meth")
-    XY_dr_gxpr_meth = buildIntegratedDataset_DNN(XY_dr_gxpr, XY_dr_meth, "balanced")
-    """
-
-    #doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[lap] DNN_result_all_layer10_drout_0.7.txt", "balanced", 0.7, 4000, "no")
-    #doMachineLearning(XY_dr_gxpr_meth, "./ML_result_all_TSNE.txt", "Only ML", "./combine/tsne")
-    ##doDNN_8(XY_dr_gxpr_meth, "./DNN_result_all_layer8.txt", "balanced") # unbalanced / balanced
-    #https://www.quora.com/How-does-one-create-separate-graphs-in-TensorFlow
-
-    #doDNN_8(XY_dr_gxpr_meth, "./various_DNN/[deg_dmg_its] DNN_result_all_layer7_final.txt", "balanced", 0.7, 10000)
-    #doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[deg_dmg_its] DNN_result_all_layer9_final.txt", "balanced", 0.7, 10000, "no")
-    #doDNN_12(XY_dr_gxpr_meth, "./various_DNN/[deg_dmg_its] DNN_result_all_layer11_final.txt", "balanced", 0.7, 10000)
 
 
-    #doMachineLearning(XY_dr_gxpr_meth, "./various_DNN/[deg_dmg_its] ML_result_all.txt", "Only ML", "./various_DNN/[deg_dmg_its]")
     doDNN_8(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer8.txt", "balanced", 0.7, 4000)
     doDNN_10(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer10.txt", "balanced", 0.7, 4000, "no")
     doDNN_12(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer12.txt", "balanced", 0.7, 4000)
     
-    #doDNN_10(XY_dr_gxpr_meth, "./result/table_4_DNN/[DEG_DMG_intersection] DNN_layer10_10000.txt", "balanced", 0.7, 10000, "no")
-    #doDNN_10(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer10_12000.txt", "balanced", 0.7, 12000, "no")
 
-    """
-    doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[TSNE][comp] DNN_result_all_layer10_drout_0.7.txt", "balanced", 0.7, 10, "no")
-    doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[TSNE][comp] DNN_result_all_layer10_drout_0.8.txt", "balanced", 0.8, 10, "yes")
-    doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[TSNE][comp] DNN_result_all_layer10_drout_0.9.txt", "balanced", 0.9, 10, "yes")
-    doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[TSNE][comp] DNN_result_all_layer10_drout_1.0.txt", "balanced", 1.0, 10, "yes")
-
-    
-    #doMachineLearning(XY_dr_gxpr_meth, "./ML_result_all_PCA.txt", "Only ML", "./combine/pca")
-    #perform_several_machineLearning(XY_dr_gxpr_meth, "./ML_result_all.txt", "Only ML")
-
-    ##doDNN_8(XY_dr_gxpr_meth, "./DNN_result_all_layer8.txt", "balanced") # unbalanced / balanced
-    doDNN_8(XY_dr_gxpr_meth, "./various_DNN/[PCA][comp] DNN_result_all_layer8.txt", "balanced", 0.7, 10)
-    doDNN_10(XY_dr_gxpr_meth, "./various_DNN/[PCA][comp] DNN_result_all_layer10.txt", "balanced", 0.7, 10)
-    doDNN_12(XY_dr_gxpr_meth, "./various_DNN/[PCA][comp] DNN_result_all_layer12.txt", "balanced", 0.7, 10)
-    """
-
-    ##doDNN_12(XY_dr_gxpr_meth, "./DNN_result_all_layer10.txt", "balanced")  # unbalanced / balanced
-    #doMachineLearning(XY_dr_gxpr_meth, "./ML_result_all.txt", "Only ML")
-    #XY_dr_gxpr_meth = buildIntegratedDataset(XY_dr_gxpr, XY_dr_meth)
-    #doMachineLearning(XY_dr_gxpr_meth, "./ML_result_all.txt", "Only ML")
 
 
 if __name__ == '__main__':
