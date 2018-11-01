@@ -1,0 +1,22 @@
+Do DNN with DNA methylation and Gene expression
+rowSize: 134	colSize: 146
+trainSize: 134
+
+
+Random ForestAccuracy: 0.1126 (+/- 0.0865)
+[0.11 0.07 0.08 0.19 0.12]
+
+
+XGBoost
+Accuracy: 0.1126 (+/- 0.0865)
+[0.11 0.07 0.08 0.19 0.12]
+
+
+SVM (with RBF)
+Accuracy: 0.4099 (+/- 0.0783)
+[0.46 0.39 0.42 0.42 0.35]
+
+
+naive bayesian
+Accuracy: 0.4099 (+/- 0.0783)
+[0.46 0.39 0.42 0.42 0.35]
