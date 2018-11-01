@@ -2606,9 +2606,9 @@ def main():
     doMachineLearning(XY_dr_gxpr_meth, dirPath_table3_deg_dmg + "/[DEG_DMG_intersection] ML_result.txt", "Only ML", dirPath_table3_deg_dmg + "/[DEG_DMG_intersection]")
 
     ## do DNN
-    doDNN_7(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer8.txt", "balanced", 0.7, 4000)
-    doDNN_9(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer10.txt", "balanced", 0.7, 4000, "no")
-    doDNN_11(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer12.txt", "balanced", 0.7, 4000)
+    doDNN_7(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer7.txt", "balanced", 0.7, 4000)
+    doDNN_9(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer9.txt", "balanced", 0.7, 4000, "no")
+    doDNN_11(XY_dr_gxpr_meth, "./results/table_4_DNN/[DEG_DMG_intersection] DNN_layer11.txt", "balanced", 0.7, 4000)
 
 
 
