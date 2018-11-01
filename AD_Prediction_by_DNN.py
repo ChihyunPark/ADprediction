@@ -1,7 +1,19 @@
+####################################################################################################################################################
+# AD_Prediction_by_DNN.py
+# Author: Chihyun Park
+# Email: chihyun.park@yonsei.ac.kr
+# Date Created: 11/02/2018
+# input
+#       1. gene expression (samples x genes) with label (AD, Normal)
+#       2. DNA methylation (samples x CpG probes) with label (AD, Normal)
+#       3. DEG list (Normal vs AD)
+#       4. DMP list (Normal vs AD)
+# output
+#       prediction performance by DNN and various machine learning algorithms while varying dimension reduction (feature selection) algorithms
+####################################################################################################################################################
+
 import tensorflow as tf
-
 import numpy as np
-
 import os.path
 import random as rd
 import shutil as shu
@@ -13,7 +25,6 @@ import os
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
@@ -28,27 +39,15 @@ from sklearn.metrics import classification_report, accuracy_score, make_scorer
 from sklearn import svm
 from sklearn.naive_bayes import GaussianNB
 
-#from multiscorer import MultiScorer
-
 if os.environ.get('DISPLAY','') == '':
     print('no display found. Using non-interactive Agg backend')
     mpl.use('Agg')
 
 
-#######################################################################################
 graph_DNN7 = tf.Graph()
 graph_DNN9 = tf.Graph()
 graph_DNN11 = tf.Graph()
 default_graph = tf.get_default_graph()
-
-#######################################################################################
-"""
-scorer = MultiScorer({
-    'Accuracy' : (accuracy_score, {}),
-    'Precision' : (precision_score, {'pos_label': 3, 'average':'macro'}),
-    'Recall' : (recall_score, {'pos_label': 3, 'average':'macro'})
-})
-"""
 
 
 def xavier_init(n_inputs, n_outputs, uniform=True):
